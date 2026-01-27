@@ -1,0 +1,25 @@
+{
+  "dinners": [
+    {
+      "id": "ayah-january-2026",
+      "restaurant": "Ayah",
+      "date": "2026-01-15",
+      "location": "Los Angeles, CA",
+      "description": "Our inaugural dinner. Middle Eastern flavors, candlelit conversations, and the beginning of something special.",
+      "photos": [
+        {
+          "src": "images/ayah-january-2026/dinner-table.jpg",
+          "alt": "The dinner table at Ayah"
+        },
+        {
+          "src": "images/ayah-january-2026/group.jpg",
+          "alt": "Friends gathered around the table"
+        },
+        {
+          "src": "images/ayah-january-2026/food.jpg",
+          "alt": "Dishes from Ayah"
+        }
+      ]
+    }
+  ]
+}

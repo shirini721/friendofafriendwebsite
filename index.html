@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friend of a Friend Dinner</title>
+  <meta name="description" content="A monthly dinner series where friends bring friends, building community one meal at a time.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#home" class="nav-logo">FOAF</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#dinners">Dinners</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Friend of a Friend</h1>
+        <p class="hero-subtitle">A Dinner Series</p>
+        <div class="hero-divider"></div>
+        <p class="hero-tagline">Three friends. Three strangers. One table.</p>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-content">
+          <h2 class="section-title">The Concept</h2>
+          <div class="about-text">
+            <p>Every month, I make a reservation at a restaurant I've been wanting to try—the kind of place with a waitlist, a story, or a dish worth traveling for.</p>
+            <p>I invite three friends. Each of them brings one person I've never met: a colleague, a cousin, an old roommate, someone interesting.</p>
+            <p>By dessert, strangers become acquaintances. By the end of the night, acquaintances become friends. And next month, the circle expands again.</p>
+            <p class="about-emphasis">This is how communities are built—not through apps or algorithms, but through shared meals and trusted introductions.</p>
+          </div>
+        </div>
+        <div class="about-details">
+          <div class="detail-card">
+            <span class="detail-number">6</span>
+            <span class="detail-label">Guests per dinner</span>
+          </div>
+          <div class="detail-card">
+            <span class="detail-number">3</span>
+            <span class="detail-label">Friends invite friends</span>
+          </div>
+          <div class="detail-card">
+            <span class="detail-number">1</span>
+            <span class="detail-label">Table, monthly</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dinners" class="dinners">
+      <div class="container">
+        <h2 class="section-title">Past Dinners</h2>
+        <p class="section-intro">Each gathering, documented. Scroll through our growing collection of evenings shared.</p>
+        <div id="dinners-grid" class="dinners-grid">
+          <!-- Dinners loaded dynamically from JSON -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">Friend of a Friend Dinner</p>
+      <p class="footer-tagline">Good food. Good company. Good introductions.</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox for photo viewing -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous photo">&#8249;</button>
+    <button class="lightbox-next" aria-label="Next photo">&#8250;</button>
+    <img class="lightbox-img" src="" alt="">
+    <p class="lightbox-caption"></p>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
