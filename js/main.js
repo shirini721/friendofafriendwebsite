@@ -11,7 +11,6 @@
   // ================================
 
   const CONFIG = {
-    dataPath: 'data/dinners.json',
     dateFormat: { year: 'numeric', month: 'long', day: 'numeric' }
   };
 
@@ -45,19 +44,17 @@
   // Data Loading
   // ================================
 
-  async function loadData() {
-    try {
-      const response = await fetch(CONFIG.dataPath);
-      if (!response.ok) throw new Error('Failed to load data');
-      const data = await response.json();
-      state.upcoming = data.upcoming || null;
-      state.dinners = data.dinners || [];
-      renderUpcoming();
-      renderDinners();
-    } catch (error) {
-      console.error('Error loading data:', error);
+  function loadData() {
+    var data = window.FOAF_DATA;
+    if (!data) {
+      console.error('FOAF_DATA not found. Make sure data/dinners.js is loaded.');
       renderEmptyState();
+      return;
     }
+    state.upcoming = data.upcoming || null;
+    state.dinners = data.dinners || [];
+    renderUpcoming();
+    renderDinners();
   }
 
   // ================================
