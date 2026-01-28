@@ -1,20 +1,22 @@
 {
   "upcoming": {
-    "restaurant": "Ayah",
-    "date": "2026-01-22",
-    "time": "7:30 PM",
+    "restaurant": "Shuka",
+    "date": "2026-02-26",
+    "time": "7:15 PM",
     "location": "Los Angeles, CA",
     "guestCount": 8,
-    "rsvpDeadline": "2026-01-08",
-    "partifulUrl": "https://partiful.com/e/1opZILdzn5Ti4Vzg1Q7h",
-    "inviteMessage": "Hey! I've been invited to this dinner series called Friend of a Friend — every month, a group gathers at a great restaurant and everyone brings one new person. I'm bringing you as my +1! It's at Ayah on Jan 22 at 7:30 PM. RSVP here: https://partiful.com/e/1opZILdzn5Ti4Vzg1Q7h"
+    "rsvpDeadline": "2026-02-12",
+    "partifulUrl": "https://partiful.com/e/2v7DwSYsQfxxv5xHfM95?c=86camiv3",
+    "inviteMessage": "Hey! I've been invited to this dinner series called Friend of a Friend — every month, a group gathers at a great restaurant and everyone brings one new person. I'm bringing you as my +1! It's at Shuka on Feb 26 at 7:15 PM. RSVP here: https://partiful.com/e/2v7DwSYsQfxxv5xHfM95?c=86camiv3"
   },
   "dinners": [
     {
       "id": "ayah-january-2026",
       "restaurant": "Ayah",
       "date": "2026-01-22",
+      "time": "7:30 PM",
       "location": "Los Angeles, CA",
+      "partifulUrl": "https://partiful.com/e/1opZILdzn5Ti4Vzg1Q7h",
       "description": "Our inaugural dinner. Middle Eastern flavors, candlelit conversations, and the beginning of something special.",
       "photos": [
         {
