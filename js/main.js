@@ -20,6 +20,7 @@
   // ================================
 
   const elements = {
+    upcomingContent: document.getElementById('upcoming-content'),
     dinnersGrid: document.getElementById('dinners-grid'),
     lightbox: document.getElementById('lightbox'),
     lightboxImg: document.querySelector('.lightbox-img'),
@@ -34,6 +35,7 @@
   // ================================
 
   let state = {
+    upcoming: null,
     dinners: [],
     currentPhotos: [],
     currentPhotoIndex: 0
@@ -43,15 +45,17 @@
   // Data Loading
   // ================================
 
-  async function loadDinners() {
+  async function loadData() {
     try {
       const response = await fetch(CONFIG.dataPath);
-      if (!response.ok) throw new Error('Failed to load dinners');
+      if (!response.ok) throw new Error('Failed to load data');
       const data = await response.json();
+      state.upcoming = data.upcoming || null;
       state.dinners = data.dinners || [];
+      renderUpcoming();
       renderDinners();
     } catch (error) {
-      console.error('Error loading dinners:', error);
+      console.error('Error loading data:', error);
       renderEmptyState();
     }
   }
@@ -63,6 +67,87 @@
   function formatDate(dateString) {
     const date = new Date(dateString + 'T00:00:00');
     return date.toLocaleDateString('en-US', CONFIG.dateFormat);
+  }
+
+  function renderUpcoming() {
+    if (!state.upcoming) {
+      elements.upcomingContent.innerHTML = `
+        <p class="no-upcoming">Next dinner details coming soon. Stay tuned.</p>
+      `;
+      return;
+    }
+
+    const u = state.upcoming;
+    elements.upcomingContent.innerHTML = `
+      <div class="upcoming-card fade-in">
+        <h3 class="upcoming-restaurant">${escapeHtml(u.restaurant)}</h3>
+        <div class="upcoming-details">
+          <span class="upcoming-detail">
+            <span class="upcoming-detail-label">${formatDate(u.date)}</span>
+          </span>
+          <span class="upcoming-detail">
+            ${escapeHtml(u.time)}
+          </span>
+          <span class="upcoming-detail">
+            ${escapeHtml(u.location)}
+          </span>
+        </div>
+        <div class="upcoming-actions">
+          <a href="${escapeHtml(u.partifulUrl)}" target="_blank" rel="noopener noreferrer" class="btn-rsvp">
+            RSVP on Partiful
+          </a>
+          <div class="upcoming-divider"></div>
+          <div class="invite-section">
+            <p class="invite-label">Invite Your +1</p>
+            <p class="invite-sublabel">Tap below to text your friend a ready-made invite with the RSVP link. It sends from your phone — personal, not a bot.</p>
+            <div class="invite-form">
+              <input type="text"
+                     id="invite-name"
+                     class="invite-input"
+                     placeholder="Your first name"
+                     autocomplete="given-name">
+              <button id="invite-btn" class="btn-invite">
+                Send Text Invite to Your +1
+              </button>
+            </div>
+            <p class="invite-hint">Opens your messaging app with a pre-written invite</p>
+          </div>
+        </div>
+      </div>
+    `;
+
+    setupInviteHandler();
+  }
+
+  function buildSmsUrl(message) {
+    var encoded = encodeURIComponent(message);
+    // iOS uses sms:&body=, Android uses sms:?body=
+    // sms:?&body= works on both in most modern browsers
+    var isIOS = /iP(hone|od|ad)/i.test(navigator.userAgent);
+    if (isIOS) {
+      return 'sms:&body=' + encoded;
+    }
+    return 'sms:?body=' + encoded;
+  }
+
+  function setupInviteHandler() {
+    var btn = document.getElementById('invite-btn');
+    var nameInput = document.getElementById('invite-name');
+    if (!btn || !state.upcoming) return;
+
+    btn.addEventListener('click', function() {
+      var name = nameInput.value.trim();
+      var u = state.upcoming;
+      var message;
+
+      if (name) {
+        message = 'Hey! It\u2019s ' + name + '. I\u2019ve been invited to this dinner series called Friend of a Friend \u2014 every month, a group gathers at a great restaurant and everyone brings one new person. I\u2019m bringing you as my +1! It\u2019s at ' + u.restaurant + ' on ' + formatDate(u.date) + ' at ' + u.time + '. RSVP here: ' + u.partifulUrl;
+      } else {
+        message = u.inviteMessage;
+      }
+
+      window.location.href = buildSmsUrl(message);
+    });
   }
 
   function renderDinners() {
@@ -259,7 +344,7 @@
   function init() {
     setupLightboxEvents();
     setupSmoothScroll();
-    loadDinners();
+    loadData();
   }
 
   // Start when DOM is ready

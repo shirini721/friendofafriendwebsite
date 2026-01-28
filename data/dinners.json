@@ -1,9 +1,19 @@
 {
+  "upcoming": {
+    "restaurant": "Ayah",
+    "date": "2026-01-22",
+    "time": "7:30 PM",
+    "location": "Los Angeles, CA",
+    "guestCount": 8,
+    "rsvpDeadline": "2026-01-08",
+    "partifulUrl": "https://partiful.com/e/1opZILdzn5Ti4Vzg1Q7h",
+    "inviteMessage": "Hey! I've been invited to this dinner series called Friend of a Friend — every month, a group gathers at a great restaurant and everyone brings one new person. I'm bringing you as my +1! It's at Ayah on Jan 22 at 7:30 PM. RSVP here: https://partiful.com/e/1opZILdzn5Ti4Vzg1Q7h"
+  },
   "dinners": [
     {
       "id": "ayah-january-2026",
       "restaurant": "Ayah",
-      "date": "2026-01-15",
+      "date": "2026-01-22",
       "location": "Los Angeles, CA",
       "description": "Our inaugural dinner. Middle Eastern flavors, candlelit conversations, and the beginning of something special.",
       "photos": [

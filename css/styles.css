@@ -254,6 +254,174 @@ a {
 }
 
 /* ================================
+   Next Dinner / Upcoming Section
+   ================================ */
+
+.next-dinner {
+  padding: var(--space-2xl) 0;
+  background-color: var(--color-warm-white);
+}
+
+.upcoming-content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.upcoming-card {
+  text-align: center;
+}
+
+.upcoming-restaurant {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 400;
+  color: var(--color-soft-black);
+  margin-bottom: var(--space-xs);
+}
+
+.upcoming-details {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+  color: var(--color-warm-gray);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.upcoming-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.upcoming-detail-label {
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+
+.upcoming-divider {
+  width: 40px;
+  height: 1px;
+  background-color: var(--color-sand);
+  margin: var(--space-lg) auto;
+}
+
+.upcoming-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.btn-rsvp {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-warm-white);
+  background-color: var(--color-soft-black);
+  padding: 1rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-rsvp:hover {
+  background-color: var(--color-charcoal);
+}
+
+/* Invite +1 Flow */
+.invite-section {
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.invite-label {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-soft-black);
+  margin-bottom: var(--space-xs);
+}
+
+.invite-sublabel {
+  font-size: 0.9375rem;
+  color: var(--color-warm-gray);
+  margin-bottom: var(--space-md);
+  line-height: 1.6;
+}
+
+.invite-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.invite-input {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 0.875rem 1.25rem;
+  border: 1px solid var(--color-sand);
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  text-align: center;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.invite-input::placeholder {
+  color: var(--color-stone);
+}
+
+.invite-input:focus {
+  border-color: var(--color-accent);
+}
+
+.btn-invite {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: none;
+  border: 1px solid var(--color-accent);
+  padding: 0.875rem 2rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-invite:hover {
+  background-color: var(--color-accent);
+  color: var(--color-warm-white);
+}
+
+.invite-hint {
+  font-size: 0.8125rem;
+  color: var(--color-stone);
+  font-style: italic;
+  margin-top: var(--space-xs);
+}
+
+/* No upcoming event state */
+.no-upcoming {
+  text-align: center;
+  padding: var(--space-md);
+  color: var(--color-warm-gray);
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+}
+
+/* ================================
    Dinners Section
    ================================ */
 
@@ -494,6 +662,12 @@ a {
   .detail-number {
     font-size: 2.5rem;
     margin-bottom: 0;
+  }
+
+  .upcoming-details {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
   }
 
   .dinner-photos {
