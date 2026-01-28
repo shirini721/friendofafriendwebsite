@@ -36,6 +36,8 @@
   let state = {
     upcoming: null,
     dinners: [],
+    galleryPassword: null,
+    galleryUnlocked: false,
     currentPhotos: [],
     currentPhotoIndex: 0
   };
@@ -53,6 +55,9 @@
     }
     state.upcoming = data.upcoming || null;
     state.dinners = data.dinners || [];
+    state.galleryPassword = data.galleryPassword || null;
+    state.galleryUnlocked = !state.galleryPassword
+      || sessionStorage.getItem('foaf_gallery_auth') === 'true';
     renderUpcoming();
     renderDinners();
   }
@@ -153,6 +158,54 @@
       return;
     }
 
+    if (state.galleryPassword && !state.galleryUnlocked) {
+      renderPasswordGate();
+      return;
+    }
+
+    renderDinnerEntries();
+  }
+
+  function renderPasswordGate() {
+    elements.dinnersGrid.innerHTML = `
+      <div class="gallery-gate fade-in">
+        <p class="gate-title">This gallery is for guests only</p>
+        <p class="gate-subtitle">Enter the password to view photos from past dinners.</p>
+        <div class="gate-form">
+          <input type="password"
+                 id="gallery-password"
+                 class="gate-input"
+                 placeholder="Password"
+                 autocomplete="off">
+          <button id="gallery-unlock" class="btn-unlock">View Gallery</button>
+          <p id="gate-error" class="gate-error"></p>
+        </div>
+      </div>
+    `;
+
+    var pwInput = document.getElementById('gallery-password');
+    var unlockBtn = document.getElementById('gallery-unlock');
+    var errorMsg = document.getElementById('gate-error');
+
+    function tryUnlock() {
+      if (pwInput.value === state.galleryPassword) {
+        state.galleryUnlocked = true;
+        sessionStorage.setItem('foaf_gallery_auth', 'true');
+        renderDinnerEntries();
+      } else {
+        errorMsg.textContent = 'Wrong password. Ask the host!';
+        pwInput.value = '';
+        pwInput.focus();
+      }
+    }
+
+    unlockBtn.addEventListener('click', tryUnlock);
+    pwInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') tryUnlock();
+    });
+  }
+
+  function renderDinnerEntries() {
     // Sort dinners by date (newest first)
     const sortedDinners = [...state.dinners].sort((a, b) =>
       new Date(b.date) - new Date(a.date)
