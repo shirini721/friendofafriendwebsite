@@ -1,21 +1,22 @@
 /* ================================
    Friend of a Friend Dinner
-   A minimal, editorial design
+   NYC energy, editorial warmth
    ================================ */
 
 :root {
-  /* Color Palette - Warm & Intimate */
-  --color-cream: #FAF8F5;
-  --color-warm-white: #FFFEFB;
-  --color-sand: #E8E4DE;
-  --color-stone: #C4BEB5;
+  /* Color Palette */
+  --color-cream: #F5F0EB;
+  --color-warm-white: #FAF8F5;
+  --color-sand: #E0D8CE;
+  --color-stone: #B0A899;
   --color-charcoal: #2C2C2C;
   --color-soft-black: #1A1A1A;
+  --color-ink: #111111;
   --color-warm-gray: #6B6560;
-  --color-accent: #8B7355;
+  --color-accent: #C84B31;
 
   /* Typography */
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'DM Serif Display', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Spacing */
@@ -88,9 +89,9 @@ a {
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: rgba(250, 248, 245, 0.95);
+  background-color: rgba(17, 17, 17, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--color-sand);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .nav {
@@ -105,9 +106,9 @@ a {
 .nav-logo {
   font-family: var(--font-serif);
   font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  color: var(--color-soft-black);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
 }
 
 .nav-links {
@@ -119,12 +120,12 @@ a {
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.05em;
-  color: var(--color-warm-gray);
+  color: rgba(255, 255, 255, 0.6);
   transition: color var(--transition-fast);
 }
 
 .nav-links a:hover {
-  color: var(--color-soft-black);
+  color: #FFFFFF;
 }
 
 /* ================================
@@ -138,21 +139,31 @@ a {
   justify-content: center;
   text-align: center;
   padding: var(--space-xl) var(--space-md);
-  background-color: var(--color-warm-white);
+  background-color: var(--color-ink);
 }
 
 .hero-content {
   max-width: 700px;
 }
 
+.hero-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(3.5rem, 10vw, 7rem);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.05;
   letter-spacing: -0.02em;
-  color: var(--color-soft-black);
-  margin-bottom: var(--space-xs);
+  color: #FFFFFF;
+  margin-bottom: var(--space-md);
 }
 
 .hero-subtitle {
@@ -160,24 +171,25 @@ a {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 400;
   font-style: italic;
-  color: var(--color-warm-gray);
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: var(--space-md);
 }
 
 .hero-divider {
   width: 60px;
   height: 1px;
-  background-color: var(--color-stone);
+  background-color: rgba(255, 255, 255, 0.2);
   margin: var(--space-md) auto;
 }
 
 .hero-tagline {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-warm-gray);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 /* ================================
@@ -199,7 +211,7 @@ a {
 }
 
 .about-content {
-  max-width: 650px;
+  max-width: 600px;
   margin: 0 auto var(--space-xl);
 }
 
@@ -212,15 +224,6 @@ a {
 
 .about-text p:last-child {
   margin-bottom: 0;
-}
-
-.about-emphasis {
-  font-family: var(--font-serif);
-  font-size: 1.375rem !important;
-  font-style: italic;
-  color: var(--color-accent) !important;
-  text-align: center;
-  margin-top: var(--space-lg) !important;
 }
 
 .about-details {
@@ -241,7 +244,7 @@ a {
   font-family: var(--font-serif);
   font-size: 3.5rem;
   font-weight: 400;
-  color: var(--color-soft-black);
+  color: var(--color-accent);
   line-height: 1;
   margin-bottom: var(--space-xs);
 }
@@ -259,7 +262,12 @@ a {
 
 .next-dinner {
   padding: var(--space-2xl) 0;
-  background-color: var(--color-warm-white);
+  background-color: var(--color-ink);
+  color: #FFFFFF;
+}
+
+.next-dinner .section-title {
+  color: #FFFFFF;
 }
 
 .upcoming-content {
@@ -275,7 +283,7 @@ a {
   font-family: var(--font-serif);
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 400;
-  color: var(--color-soft-black);
+  color: #FFFFFF;
   margin-bottom: var(--space-xs);
 }
 
@@ -285,7 +293,7 @@ a {
   flex-wrap: wrap;
   gap: var(--space-sm) var(--space-md);
   margin-bottom: var(--space-md);
-  color: var(--color-warm-gray);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 1rem;
   letter-spacing: 0.02em;
 }
@@ -298,13 +306,13 @@ a {
 
 .upcoming-detail-label {
   font-weight: 500;
-  color: var(--color-charcoal);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .upcoming-divider {
   width: 40px;
   height: 1px;
-  background-color: var(--color-sand);
+  background-color: rgba(255, 255, 255, 0.15);
   margin: var(--space-lg) auto;
 }
 
@@ -322,8 +330,8 @@ a {
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-warm-white);
-  background-color: var(--color-soft-black);
+  color: #FFFFFF;
+  background-color: var(--color-accent);
   padding: 1rem 2.5rem;
   border: none;
   cursor: pointer;
@@ -332,7 +340,7 @@ a {
 }
 
 .btn-rsvp:hover {
-  background-color: var(--color-charcoal);
+  background-color: #B5422A;
 }
 
 /* Invite +1 Flow */
@@ -346,13 +354,13 @@ a {
   font-family: var(--font-serif);
   font-size: 1.5rem;
   font-weight: 400;
-  color: var(--color-soft-black);
+  color: #FFFFFF;
   margin-bottom: var(--space-xs);
 }
 
 .invite-sublabel {
   font-size: 0.9375rem;
-  color: var(--color-warm-gray);
+  color: rgba(255, 255, 255, 0.45);
   margin-bottom: var(--space-md);
   line-height: 1.6;
 }
@@ -367,16 +375,16 @@ a {
   font-family: var(--font-sans);
   font-size: 1rem;
   padding: 0.875rem 1.25rem;
-  border: 1px solid var(--color-sand);
-  background-color: var(--color-cream);
-  color: var(--color-charcoal);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
   text-align: center;
   outline: none;
   transition: border-color var(--transition-fast);
 }
 
 .invite-input::placeholder {
-  color: var(--color-stone);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .invite-input:focus {
@@ -401,12 +409,12 @@ a {
 
 .btn-invite:hover {
   background-color: var(--color-accent);
-  color: var(--color-warm-white);
+  color: #FFFFFF;
 }
 
 .invite-hint {
   font-size: 0.8125rem;
-  color: var(--color-stone);
+  color: rgba(255, 255, 255, 0.3);
   font-style: italic;
   margin-top: var(--space-xs);
 }
@@ -415,7 +423,7 @@ a {
 .no-upcoming {
   text-align: center;
   padding: var(--space-md);
-  color: var(--color-warm-gray);
+  color: rgba(255, 255, 255, 0.5);
   font-family: var(--font-serif);
   font-size: 1.125rem;
   font-style: italic;
@@ -462,7 +470,7 @@ a {
 .dinner-restaurant {
   font-family: var(--font-serif);
   font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-soft-black);
 }
 
@@ -539,7 +547,7 @@ a {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background-color: rgba(26, 26, 26, 0.95);
+  background-color: rgba(17, 17, 17, 0.97);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -565,7 +573,7 @@ a {
   position: absolute;
   background: none;
   border: none;
-  color: var(--color-warm-white);
+  color: #FFFFFF;
   cursor: pointer;
   transition: opacity var(--transition-fast);
   font-family: var(--font-sans);
@@ -605,7 +613,7 @@ a {
   bottom: var(--space-md);
   left: 50%;
   transform: translateX(-50%);
-  color: var(--color-stone);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.9375rem;
   text-align: center;
   max-width: 80%;
@@ -618,20 +626,20 @@ a {
 .site-footer {
   padding: var(--space-xl) var(--space-md);
   text-align: center;
-  background-color: var(--color-cream);
-  border-top: 1px solid var(--color-sand);
+  background-color: var(--color-ink);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-text {
   font-family: var(--font-serif);
   font-size: 1.25rem;
-  color: var(--color-soft-black);
+  color: #FFFFFF;
   margin-bottom: var(--space-xs);
 }
 
 .footer-tagline {
   font-size: 0.875rem;
-  color: var(--color-warm-gray);
+  color: rgba(255, 255, 255, 0.4);
   letter-spacing: 0.03em;
 }
 

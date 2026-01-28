@@ -8,7 +8,7 @@ window.FOAF_DATA = {
     "restaurant": "Shuka",
     "date": "2026-02-26",
     "time": "7:15 PM",
-    "location": "Los Angeles, CA",
+    "location": "New York, NY",
     "guestCount": 8,
     "rsvpDeadline": "2026-02-12",
     "partifulUrl": "https://partiful.com/e/2v7DwSYsQfxxv5xHfM95?c=86camiv3",
@@ -22,7 +22,7 @@ window.FOAF_DATA = {
       "time": "7:30 PM",
       "location": "Los Angeles, CA",
       "partifulUrl": "https://partiful.com/e/1opZILdzn5Ti4Vzg1Q7h",
-      "description": "Our inaugural dinner. Middle Eastern flavors, candlelit conversations, and the beginning of something special.",
+      "description": "The one that started it all. Great food, even better company.",
       "photos": [
         {
           "src": "images/ayah-january-2026/dinner-table.jpg",
